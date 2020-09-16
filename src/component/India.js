@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
 import {Card} from 'react-bootstrap'
 import StateData from "./StateData"
+import axios from 'axios';
 
 export default class India extends Component {
+
+    constructor(){
+        super()
+        this.state={
+            allDistrict:[]
+        }
+    }
+
+    componentDidMount(){
+        axios.get("https://corona.lmao.ninja/v2/countries/india").then(response=>{
+            this.setState({
+                allDistrict:response.data
+            })
+        })
+    }
+
     render() {
         return (
             <div className="row">
@@ -17,10 +34,8 @@ export default class India extends Component {
 
                     <Card.Body className="text-center">
                         <Card.Title>TOTAL CASES</Card.Title>
-                        <h3>19877</h3>
-                        <Card.Text>
-                        [Today-25]
-                        </Card.Text>
+        <h3>{this.state.allDistrict.cases}</h3>
+                       
                         
                     </Card.Body>
                     </Card> 
@@ -30,10 +45,8 @@ export default class India extends Component {
 
   <Card.Body className="text-center">
     <Card.Title>ACTIVE CAESES</Card.Title>
-    <h3>19877</h3>
-    <Card.Text>
-     [Today-25]
-    </Card.Text>
+        <h3>{this.state.allDistrict.active}</h3>
+    
     
   </Card.Body>
 </Card>
@@ -43,10 +56,8 @@ export default class India extends Component {
 
   <Card.Body className="text-center">
     <Card.Title>RECOVERED</Card.Title>
-    <h3>19877</h3>
-    <Card.Text>
-     [Today-25]
-    </Card.Text>
+        <h3>{this.state.allDistrict.recovered}</h3>
+   
     
   </Card.Body>
 </Card>
@@ -56,10 +67,8 @@ export default class India extends Component {
 
   <Card.Body className="text-center">
     <Card.Title>DEATHS</Card.Title>
-    <h3>19877</h3>
-    <Card.Text>
-     [Today-25]
-    </Card.Text>
+        <h3>{this.state.allDistrict.deaths}</h3>
+    
     
   </Card.Body>
 </Card>
