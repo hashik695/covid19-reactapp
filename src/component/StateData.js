@@ -53,7 +53,7 @@ export default class StateData extends Component {
                  return(
                   <Card>
                   <Card.Header>
-                    <Accordion.Toggle as={Button} variant="warning"  eventKey={key}>
+                    <Accordion.Toggle as={Button} variant="outline-secondary"  eventKey={key}>
                       {itm}-<span className="btn-dark p-1 mr-2">Total Cases:{total_confiremed}</span> <span className="btn-dark p-1 mr-2"> Active :{total_active}</span><span className="btn-dark p-1 mr-2"> Deaths:{total_deaths}</span> <span className="btn-dark p-1 mr-2">recovered:{total_recovery}</span>
                     </Accordion.Toggle>
                   </Card.Header>
